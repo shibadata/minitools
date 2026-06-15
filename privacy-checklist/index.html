@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Privacy — Checklist</title>
+<title>AI Privacy: Checklist</title>
 <style>
   :root{
     --bg:#0f1115; --card:#171a21; --card2:#1d212a; --line:#2a2f3a;
@@ -102,7 +102,7 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>AI Privacy — Checklist rút gọn (Phần A)</h1>
+    <h1>AI Privacy: Checklist rút gọn (Phần A)</h1>
     <p class="sub">Bản thao tác nhanh: vào đâu, bấm gì. Chi tiết lý do và nguồn xem ở bản đầy đủ.</p>
     <p class="meta">Đường dẫn đã kiểm tới 14/06/2026 – UI đổi nhanh, xác nhận lại trang trợ giúp chính thức khi thao tác.</p>
   </header>
@@ -133,23 +133,23 @@ const DATA = [
   {
     n:"1", t:"Tắt dùng dữ liệu để huấn luyện (training opt-out)",
     items:[
-      `<b>ChatGPT</b> — Profile → Settings → Data Controls → tắt "Improve the model for everyone". (Free/Plus/Pro mặc định ĐANG BẬT.)`,
-      `<b>Claude</b> — Vào <code>claude.ai/settings/data-privacy-controls</code> → tắt tùy chọn cho phép dùng dữ liệu cải thiện mô hình. (Mặc định bật từ 8/2025; tắt thì về mức lưu 30 ngày.)`,
-      `<b>Gemini</b> — <code>myactivity.google.com/product/gemini</code> → tắt "Keep Activity". <span class="warn">(Đánh đổi: mất luôn lịch sử chat.)</span>`,
-      `<b>Copilot</b> — copilot.com → Profile → Privacy → tắt "Training on conversation activity" và "Training on voice conversations".`,
-      `<b>Meta AI</b> — <span class="warn">Không có nút tắt thật ở Việt Nam.</span> Từ 16/12/2025 dùng chat để cá nhân hóa quảng cáo, chỉ Anh/EU/Hàn Quốc được loại trừ. Cách duy nhất với Meta AI assistant: không dùng.`,
-      `<b>Messenger</b> — Trong từng chat: mở info → Privacy & support → Message permissions → tắt "Allow message sharing". (Per-chat, không phải global; mặc định cho phép mọi người trong chat chia sẻ tin nhắn với Meta AI.)`,
-      `<b>DeepSeek</b> — <span class="warn">Không có nút tắt;</span> dữ liệu lưu tại máy chủ Trung Quốc. Không dán dữ liệu cá nhân/bí mật công việc vào bản đám mây.`
+      `<b>ChatGPT</b>: Profile → Settings → Data Controls → tắt "Improve the model for everyone". (Free/Plus/Pro mặc định ĐANG BẬT.)`,
+      `<b>Claude</b>: Vào <code>claude.ai/settings/data-privacy-controls</code> → tắt tùy chọn cho phép dùng dữ liệu cải thiện mô hình. (Mặc định bật từ 8/2025; tắt thì về mức lưu 30 ngày.)`,
+      `<b>Gemini</b>: <code>myactivity.google.com/product/gemini</code> → tắt "Keep Activity". <span class="warn">(Đánh đổi: mất luôn lịch sử chat.)</span>`,
+      `<b>Copilot</b>: copilot.com → Profile → Privacy → tắt "Training on conversation activity" và "Training on voice conversations".`,
+      `<b>Meta AI</b>: <span class="warn">Không có nút tắt thật ở Việt Nam.</span> Từ 16/12/2025 dùng chat để cá nhân hóa quảng cáo, chỉ Anh/EU/Hàn Quốc được loại trừ. Cách duy nhất với Meta AI assistant: không dùng.`,
+      `<b>Messenger</b>: Trong từng chat: mở info → Privacy & support → Message permissions → tắt "Allow message sharing". (Per-chat, không phải global; mặc định cho phép mọi người trong chat chia sẻ tin nhắn với Meta AI.)`,
+      `<b>DeepSeek</b>: <span class="warn">Không có nút tắt;</span> dữ liệu lưu tại máy chủ Trung Quốc. Không dán dữ liệu cá nhân/bí mật công việc vào bản đám mây.`
     ]
   },
   {
     n:"2", t:"Lịch sử, bộ nhớ, chat tạm",
     items:[
-      `<b>ChatGPT</b> — Xóa lịch sử (mất khỏi hệ thống trong 30 ngày). Dùng Temporary Chat cho việc nhạy cảm (xóa sau 30 ngày, không train).`,
-      `<b>Claude</b> — Xóa hội thoại; dùng Incognito để giảm lưu trữ.`,
-      `<b>Gemini</b> — Đổi auto-delete (mặc định 18 tháng → hạ xuống 3 tháng). <span class="warn">Lưu ý:</span> tắt activity vẫn giữ 72 giờ; hội thoại đã bị người duyệt đọc giữ tới 3 năm, xóa lịch sử không kéo về.`,
-      `<b>Copilot</b> — Xóa từng mục hoặc xóa toàn bộ lịch sử; rà mục <b>memory/personalization</b> (tách riêng với training, có công tắc phụ mặc định bật lấy dữ liệu từ Bing/MSN/Edge).`,
-      `Chung: "temp chat" không phải tàng hình tức thì, "xóa" có thể bị nghĩa vụ pháp lý ghi đè — đừng dán nội dung nhạy cảm khi đang bật chế độ lưu.`
+      `<b>ChatGPT</b>: Xóa lịch sử (mất khỏi hệ thống trong 30 ngày). Dùng Temporary Chat cho việc nhạy cảm (xóa sau 30 ngày, không train).`,
+      `<b>Claude</b>: Xóa hội thoại; dùng Incognito để giảm lưu trữ.`,
+      `<b>Gemini</b>: Đổi auto-delete (mặc định 18 tháng → hạ xuống 3 tháng). <span class="warn">Lưu ý:</span> tắt activity vẫn giữ 72 giờ; hội thoại đã bị người duyệt đọc giữ tới 3 năm, xóa lịch sử không kéo về.`,
+      `<b>Copilot</b>: Xóa từng mục hoặc xóa toàn bộ lịch sử; rà mục <b>memory/personalization</b> (tách riêng với training, có công tắc phụ mặc định bật lấy dữ liệu từ Bing/MSN/Edge).`,
+      `Chung: "temp chat" không phải tàng hình tức thì, "xóa" có thể bị nghĩa vụ pháp lý ghi đè: đừng dán nội dung nhạy cảm khi đang bật chế độ lưu.`
     ]
   },
   {
@@ -162,31 +162,31 @@ const DATA = [
   {
     n:"4", t:"Quyền truy cập chéo (email/drive/lịch)",
     items:[
-      `<b>Gemini</b> — Bảng "Personal Intelligence" trong Gemini kiểm soát quyền đọc Gmail/Drive/Maps/Calendar; quyền Gmail tắt riêng ở Gmail Settings → General.`,
+      `<b>Gemini</b>: Bảng "Personal Intelligence" trong Gemini kiểm soát quyền đọc Gmail/Drive/Maps/Calendar; quyền Gmail tắt riêng ở Gmail Settings → General.`,
       `Rà mọi AI đang nối vào hộp thư/kho file/lịch → thu hồi cái không còn dùng.`
     ]
   },
   {
     n:"5", t:"Theo dõi cấp tài khoản & app nhắn tin",
     items:[
-      `<b>Google Web & App Activity</b> — Vào <code>myactivity.google.com</code> rà mục này (tách biệt với Gemini, vẫn lưu khi dùng dịch vụ Google khác).`,
-      `<b>Zalo</b> — Vào Cài đặt → rà các mục quyền riêng tư. (12/2025 buộc "Đồng ý tất cả" hoặc xóa tài khoản sau 45 ngày.)`
+      `<b>Google Web & App Activity</b>: Vào <code>myactivity.google.com</code> rà mục này (tách biệt với Gemini, vẫn lưu khi dùng dịch vụ Google khác).`,
+      `<b>Zalo</b>: Vào Cài đặt → rà các mục quyền riêng tư. (12/2025 buộc "Đồng ý tất cả" hoặc xóa tài khoản sau 45 ngày.)`
     ]
   },
   {
     n:"6", t:"Gói free vs trả tiền vs doanh nghiệp",
     items:[
-      `Trả tiền gói cá nhân (Plus/Pro/Max) <span class="warn">KHÔNG mua thêm quyền riêng tư training</span> — vẫn phải tự tắt như gói free.`,
-      `Khác biệt thật ở gói doanh nghiệp: OpenAI Team/Enterprise/Edu, Anthropic Work/Edu/API, Microsoft 365 — mặc định không train trên nội dung khách hàng.`
+      `Trả tiền gói cá nhân (Plus/Pro/Max) <span class="warn">KHÔNG mua thêm quyền riêng tư training</span>: vẫn phải tự tắt như gói free.`,
+      `Khác biệt thật ở gói doanh nghiệp: OpenAI Team/Enterprise/Edu, Anthropic Work/Edu/API, Microsoft 365: mặc định không train trên nội dung khách hàng.`
     ]
   },
   {
     n:"7", t:"Bảo mật tài khoản (khóa cửa đi kèm rèm cửa)",
     items:[
-      `<b>Password manager</b> — Mỗi dịch vụ một mật khẩu mạnh khác nhau; đừng lưu vào ghi chú/trình duyệt.`,
-      `<b>2FA</b> — Bật, và chọn đúng loại: Passkey / khóa phần cứng → tài khoản giá trị cao (email chính, ngân hàng, tài khoản AI nhiều dữ liệu).`,
-      `<b>2FA</b> — Authenticator app (TOTP) → mạng xã hội, giải trí.`,
-      `<b>2FA</b> — SMS → chỉ cho tài khoản ít rủi ro (<span class="warn">yếu nhất, dễ bị SIM swap</span>).`,
+      `<b>Password manager</b>: Mỗi dịch vụ một mật khẩu mạnh khác nhau; đừng lưu vào ghi chú/trình duyệt.`,
+      `<b>2FA</b>: Bật, và chọn đúng loại: Passkey / khóa phần cứng → tài khoản giá trị cao (email chính, ngân hàng, tài khoản AI nhiều dữ liệu).`,
+      `<b>2FA</b>: Authenticator app (TOTP) → mạng xã hội, giải trí.`,
+      `<b>2FA</b>: SMS → chỉ cho tài khoản ít rủi ro (<span class="warn">yếu nhất, dễ bị SIM swap</span>).`,
       `Lưu backup codes ở nơi an toàn khi thiết lập.`
     ]
   }
