@@ -118,8 +118,9 @@ const DATA = [
       `<b>ChatGPT</b>: Profile → Settings → Data Controls → tắt "Improve the model for everyone". (Free/Plus/Pro mặc định ĐANG BẬT.)`,
       `<b>Claude</b>: Vào <code>claude.ai/settings/data-privacy-controls</code> → tắt tùy chọn cho phép dùng dữ liệu cải thiện mô hình. (Mặc định bật từ 8/2025; tắt thì về mức lưu 30 ngày.)`,
       `<b>Gemini</b>: <code>myactivity.google.com/product/gemini</code> → tắt "Keep Activity". <span class="warn">(Đánh đổi: Gemini không lưu lại lịch sử chat.)</span>`,
+      `<b>Grok (xAI)</b>: Mặc định sử dụng data của user trên X để train AI, dùng lịch sử chat của bạn với Grok để train AI và có nhiều "mập mờ" gây tranh cãi, <a href="https://anonyome.com/knowledge-center/ai-privacy/grok-privacy/" xem thêm</a> `,
       `<b>Copilot</b>: copilot.com → Profile → Privacy → tắt "Training on conversation activity" và "Training on voice conversations".`,
-      `<b>Meta AI</b>: <span class="warn">Không có nút tắt thật ở Việt Nam.</span> Từ 16/12/2025 dùng chat để cá nhân hóa quảng cáo, chỉ Anh/EU/Hàn Quốc được loại trừ. Cách duy nhất với Meta AI assistant: không dùng.`,
+      `<b>Meta AI</b>: <span class="warn">Không thể tắt ở Việt Nam.</span> Từ 16/12/2025 Meta AI dùng dữ liệu chat để cá nhân hóa quảng cáo, chỉ các nước Anh/EU/Hàn Quốc được loại trừ. Cách duy nhất với Meta AI assistant: không dùng.`,
       `<b>Facebook Messenger</b>: Vào chat: mở info (i) → Privacy & support → Message permissions → tắt "Allow message sharing". (mặc định cho phép mọi người trong chat chia sẻ tin nhắn với Meta AI, cần vào chỉnh trong từng chat, group chat cần admin chỉnh.)`,
       `<b>DeepSeek</b>: <span class="warn">Không có nút tắt;</span> dữ liệu lưu tại máy chủ Trung Quốc. Không dán dữ liệu cá nhân/bí mật công việc vào đây.`
     ]
@@ -127,11 +128,11 @@ const DATA = [
   {
     n:"2", t:"Lịch sử, bộ nhớ, chat tạm",
     items:[
-      `<b>ChatGPT</b>: Xóa lịch sử (hệ thống vẫn giữ trong vòng 30 ngày kể từ khi bấm xóa)`,
-      `<b>Claude</b>: Xóa hội thoại; dùng Incognito để ẩn danh.`,
-      `<b>Gemini</b>: Đổi auto-delete (mặc định 18 tháng → hạ xuống 3 tháng). <span class="warn">Lưu ý:</span> dù tắt lưu activity thì Gemini vẫn giữ 72 giờ; còn hội thoại đã bị người thật duyệt thì sẽ được giữ tới 3 năm, không thế xóa.`,
-      `<b>Copilot</b>: Xóa từng mục hoặc xóa toàn bộ lịch sử; rà mục <b>memory/personalization</b> (tách riêng với training, có công tắc phụ mặc định bật lấy dữ liệu từ Bing/MSN/Edge).`,
-      `Chung: "temp chat" không mặc định an toàn, mặc dù là chế độ ẩn danh/tạm thì mỗi nền tảng vẫn có thời gian lưu giữ khác nhau`
+      `<b>ChatGPT</b>: Xóa lịch sử chat (hệ thống vẫn giữ trong vòng 30 ngày kể từ khi bấm xóa), dùng Temporary chat để ẩn danh`,
+      `<b>Claude</b>: Xóa hội thoại; xóa Claude code session; dùng Incognito để ẩn danh.`,
+      `<b>Gemini</b>: Đổi sang chế độ auto-delete hoạt động cũ (mặc định 18 tháng → bạn có thể hạ xuống 3 tháng). <span class="warn">Lưu ý:</span> dù tắt lưu activity thì Gemini vẫn giữ 72 giờ; còn hội thoại đã bị người thật duyệt thì sẽ được giữ tới 3 năm, không thế xóa. Gemini cũng có chế độ chat ẩn danh`,
+      `<b>Copilot</b>: Xóa từng mục hoặc xóa toàn bộ lịch sử; rà soát mục <b>memory/personalization</b> (tách riêng với tắt quyền dùng data để training, có công tắc phụ mặc định bật lấy dữ liệu từ Bing/MSN/Edge).`,
+      `<b>Chung</b>: "chat ẩn danh" không nhất định sẽ an toàn, mặc dù là chế độ ẩn danh/tạm thì mỗi nền tảng vẫn có thời gian lưu giữ lịch sử chat khác nhau.`
     ]
   },
   {
@@ -156,7 +157,7 @@ const DATA = [
   {
     n:"6", t:"Bảo mật tài khoản nhằm hỗ trợ privacy (khóa chống trộm)",
     items:[
-      `<b>Password manager</b>: Đừng lưu password vào ghi chú/trình duyệt mà hãy dùng các app quản lý pass, miễn phí cũng có nhiều ứng dụng ok.`,
+      `<b>Password manager</b>: Đừng lưu password vào ghi chú/trình duyệt mà hãy dùng các app quản lý pass, ở gói miễn phí cũng có nhiều ứng dụng ok.`,
       `<b>2FA</b>: Bật bảo mật 2 lớp cho các tài khoản quan trọng, lưu backup codes ở nơi an toàn khi thiết lập 2FA.`
     ]
   }
