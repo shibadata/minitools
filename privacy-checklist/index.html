@@ -29,18 +29,6 @@
   .sub{color:var(--muted); font-size:13px; margin:0}
   .meta{color:var(--muted); font-size:12.5px; margin-top:6px}
 
-  .idbar{
-    display:flex; gap:8px; align-items:center; flex-wrap:wrap;
-    background:var(--card); border:1px solid var(--line); border-radius:12px;
-    padding:10px 12px; margin:14px 0;
-  }
-  .idbar label{font-size:13px; color:var(--muted)}
-  .idbar input{
-    background:var(--card2); border:1px solid var(--line); color:var(--txt);
-    border-radius:8px; padding:6px 10px; font-size:14px; min-width:160px;
-  }
-  .idbar .who{font-size:13px; color:var(--accent)}
-
   .progress{
     background:var(--card); border:1px solid var(--line); border-radius:12px;
     padding:12px 14px; margin:14px 0 22px; position:sticky; top:8px; z-index:5;
@@ -102,16 +90,10 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>AI Privacy: Checklist rút gọn (Phần A)</h1>
-    <p class="sub">Bản thao tác nhanh: vào đâu, bấm gì. Chi tiết lý do và nguồn xem ở bản đầy đủ.</p>
-    <p class="meta">Đường dẫn đã kiểm tới 14/06/2026 – UI đổi nhanh, xác nhận lại trang trợ giúp chính thức khi thao tác.</p>
-  </header>
-
-  <div class="idbar">
-    <label for="who">Tên/định danh của bạn:</label>
-    <input id="who" type="text" placeholder="vd: an, linh, may-laptop…" autocomplete="off">
-    <span class="who" id="whoLabel"></span>
-  </div>
+    <h1>AI Privacy Checklist</h1>
+    <p>Tiến độ tự động lưu theo trình duyệt và chỉ nằm trên máy bạn</p>
+    <p>Lưu ý các nền tảng thay đổi chính sách liên tục, đây là danh sách để tiện theo dõi, bạn nên tìm thay đổi setting cụ thể</p>
+     </header>
 
   <div class="progress">
     <div class="pstat"><span id="pText">0 / 0 mục</span><span id="pPct">0%</span></div>
@@ -121,11 +103,11 @@
   <div id="list"></div>
 
   <div class="actions">
-    <button id="btnReset" class="danger">Bỏ tích toàn bộ (người này)</button>
+    <button id="btnReset" class="danger">Bỏ tích toàn bộ</button>
     <button id="btnExport">Xuất tiến độ (.json)</button>
   </div>
 
-  <footer>Tiến độ lưu ngay trên máy bạn (localStorage), không gửi đi đâu. Đổi tên ở trên = hồ sơ tiến độ riêng cho người đó.</footer>
+  <footer>&#169;Shiba-2026</footer>
 </div>
 
 <script>
@@ -135,67 +117,53 @@ const DATA = [
     items:[
       `<b>ChatGPT</b>: Profile → Settings → Data Controls → tắt "Improve the model for everyone". (Free/Plus/Pro mặc định ĐANG BẬT.)`,
       `<b>Claude</b>: Vào <code>claude.ai/settings/data-privacy-controls</code> → tắt tùy chọn cho phép dùng dữ liệu cải thiện mô hình. (Mặc định bật từ 8/2025; tắt thì về mức lưu 30 ngày.)`,
-      `<b>Gemini</b>: <code>myactivity.google.com/product/gemini</code> → tắt "Keep Activity". <span class="warn">(Đánh đổi: mất luôn lịch sử chat.)</span>`,
+      `<b>Gemini</b>: <code>myactivity.google.com/product/gemini</code> → tắt "Keep Activity". <span class="warn">(Đánh đổi: Gemini không lưu lại lịch sử chat.)</span>`,
       `<b>Copilot</b>: copilot.com → Profile → Privacy → tắt "Training on conversation activity" và "Training on voice conversations".`,
       `<b>Meta AI</b>: <span class="warn">Không có nút tắt thật ở Việt Nam.</span> Từ 16/12/2025 dùng chat để cá nhân hóa quảng cáo, chỉ Anh/EU/Hàn Quốc được loại trừ. Cách duy nhất với Meta AI assistant: không dùng.`,
-      `<b>Messenger</b>: Trong từng chat: mở info → Privacy & support → Message permissions → tắt "Allow message sharing". (Per-chat, không phải global; mặc định cho phép mọi người trong chat chia sẻ tin nhắn với Meta AI.)`,
-      `<b>DeepSeek</b>: <span class="warn">Không có nút tắt;</span> dữ liệu lưu tại máy chủ Trung Quốc. Không dán dữ liệu cá nhân/bí mật công việc vào bản đám mây.`
+      `<b>Facebook Messenger</b>: Vào chat: mở info (i) → Privacy & support → Message permissions → tắt "Allow message sharing". (mặc định cho phép mọi người trong chat chia sẻ tin nhắn với Meta AI, cần vào chỉnh trong từng chat, group chat cần admin chỉnh.)`,
+      `<b>DeepSeek</b>: <span class="warn">Không có nút tắt;</span> dữ liệu lưu tại máy chủ Trung Quốc. Không dán dữ liệu cá nhân/bí mật công việc vào đây.`
     ]
   },
   {
     n:"2", t:"Lịch sử, bộ nhớ, chat tạm",
     items:[
-      `<b>ChatGPT</b>: Xóa lịch sử (mất khỏi hệ thống trong 30 ngày). Dùng Temporary Chat cho việc nhạy cảm (xóa sau 30 ngày, không train).`,
-      `<b>Claude</b>: Xóa hội thoại; dùng Incognito để giảm lưu trữ.`,
-      `<b>Gemini</b>: Đổi auto-delete (mặc định 18 tháng → hạ xuống 3 tháng). <span class="warn">Lưu ý:</span> tắt activity vẫn giữ 72 giờ; hội thoại đã bị người duyệt đọc giữ tới 3 năm, xóa lịch sử không kéo về.`,
+      `<b>ChatGPT</b>: Xóa lịch sử (hệ thống vẫn giữ trong vòng 30 ngày kể từ khi bấm xóa)`,
+      `<b>Claude</b>: Xóa hội thoại; dùng Incognito để ẩn danh.`,
+      `<b>Gemini</b>: Đổi auto-delete (mặc định 18 tháng → hạ xuống 3 tháng). <span class="warn">Lưu ý:</span> dù tắt lưu activity thì Gemini vẫn giữ 72 giờ; còn hội thoại đã bị người thật duyệt thì sẽ được giữ tới 3 năm, không thế xóa.`,
       `<b>Copilot</b>: Xóa từng mục hoặc xóa toàn bộ lịch sử; rà mục <b>memory/personalization</b> (tách riêng với training, có công tắc phụ mặc định bật lấy dữ liệu từ Bing/MSN/Edge).`,
-      `Chung: "temp chat" không phải tàng hình tức thì, "xóa" có thể bị nghĩa vụ pháp lý ghi đè: đừng dán nội dung nhạy cảm khi đang bật chế độ lưu.`
+      `Chung: "temp chat" không mặc định an toàn, mặc dù là chế độ ẩn danh/tạm thì mỗi nền tảng vẫn có thời gian lưu giữ khác nhau`
     ]
   },
   {
     n:"3", t:"Tính năng share",
     items:[
-      `Trước khi bấm share: hiểu rõ link công khai tới đâu (bài học Grok 8/2025 – 370.000+ hội thoại bị Google index).`,
-      `Đã bị search engine index thì xóa ở nền tảng <span class="warn">KHÔNG xóa được bản cache.</span>`
+      `Trước khi bấm share: hiểu rõ link công khai tới đâu, cần chú ý thường xuyên kiểm tra các link đã share và xóa nếu không cần nữa. Lưu ý nếu đã bị search engine index thì chỉ xóa được ở phía AI <span class="warn">KHÔNG xóa được bản cache trên mạng.`
     ]
   },
   {
     n:"4", t:"Quyền truy cập chéo (email/drive/lịch)",
     items:[
       `<b>Gemini</b>: Bảng "Personal Intelligence" trong Gemini kiểm soát quyền đọc Gmail/Drive/Maps/Calendar; quyền Gmail tắt riêng ở Gmail Settings → General.`,
-      `Rà mọi AI đang nối vào hộp thư/kho file/lịch → thu hồi cái không còn dùng.`
+      `Rà soát mọi AI đang có quyền truy cập vào Inbox/Drive/Calendar/Ổ cứng/Các app khác (MCP) và thu hồi các quyền không còn dùng.`
     ]
   },
   {
-    n:"5", t:"Theo dõi cấp tài khoản & app nhắn tin",
+    n:"5", t:"Tài khoản & app nhắn tin",
     items:[
-      `<b>Google Web & App Activity</b>: Vào <code>myactivity.google.com</code> rà mục này (tách biệt với Gemini, vẫn lưu khi dùng dịch vụ Google khác).`,
-      `<b>Zalo</b>: Vào Cài đặt → rà các mục quyền riêng tư. (12/2025 buộc "Đồng ý tất cả" hoặc xóa tài khoản sau 45 ngày.)`
+      `<b>Google Web & App Activity</b>: Vào <code>myactivity.google.com</code> rà mục này (tách biệt với Gemini, vẫn lưu khi dùng dịch vụ Google khác).`
     ]
   },
   {
-    n:"6", t:"Gói free vs trả tiền vs doanh nghiệp",
+    n:"6", t:"Bảo mật tài khoản nhằm hỗ trợ privacy (khóa chống trộm)",
     items:[
-      `Trả tiền gói cá nhân (Plus/Pro/Max) <span class="warn">KHÔNG mua thêm quyền riêng tư training</span>: vẫn phải tự tắt như gói free.`,
-      `Khác biệt thật ở gói doanh nghiệp: OpenAI Team/Enterprise/Edu, Anthropic Work/Edu/API, Microsoft 365: mặc định không train trên nội dung khách hàng.`
-    ]
-  },
-  {
-    n:"7", t:"Bảo mật tài khoản (khóa cửa đi kèm rèm cửa)",
-    items:[
-      `<b>Password manager</b>: Mỗi dịch vụ một mật khẩu mạnh khác nhau; đừng lưu vào ghi chú/trình duyệt.`,
-      `<b>2FA</b>: Bật, và chọn đúng loại: Passkey / khóa phần cứng → tài khoản giá trị cao (email chính, ngân hàng, tài khoản AI nhiều dữ liệu).`,
-      `<b>2FA</b>: Authenticator app (TOTP) → mạng xã hội, giải trí.`,
-      `<b>2FA</b>: SMS → chỉ cho tài khoản ít rủi ro (<span class="warn">yếu nhất, dễ bị SIM swap</span>).`,
-      `Lưu backup codes ở nơi an toàn khi thiết lập.`
+      `<b>Password manager</b>: Đừng lưu password vào ghi chú/trình duyệt mà hãy dùng các app quản lý pass, miễn phí cũng có nhiều ứng dụng ok.`,
+      `<b>2FA</b>: Bật bảo mật 2 lớp cho các tài khoản quan trọng, lưu backup codes ở nơi an toàn khi thiết lập 2FA.`
     ]
   }
 ];
 
-const KEY_PREFIX = "ai-privacy-checklist:v1:";
+const STORE_KEY = "ai-privacy-checklist:v1";
 const listEl = document.getElementById("list");
-const whoInput = document.getElementById("who");
-const whoLabel = document.getElementById("whoLabel");
 
 // build stable ids
 let totalItems = 0;
@@ -203,17 +171,12 @@ DATA.forEach((sec, si) => {
   sec.items.forEach((_, ii) => totalItems++);
 });
 
-function currentUser(){
-  return (whoInput.value.trim() || "default").toLowerCase();
-}
-function storeKey(){ return KEY_PREFIX + currentUser(); }
-
 function loadState(){
-  try { return JSON.parse(localStorage.getItem(storeKey()) || "{}"); }
+  try { return JSON.parse(localStorage.getItem(STORE_KEY) || "{}"); }
   catch(e){ return {}; }
 }
 function saveState(state){
-  localStorage.setItem(storeKey(), JSON.stringify(state));
+  localStorage.setItem(STORE_KEY, JSON.stringify(state));
 }
 
 function render(){
@@ -263,30 +226,21 @@ function updateProgress(){
   document.getElementById("pFill").style.width = pct + "%";
 }
 
-whoInput.addEventListener("input", () => {
-  whoLabel.textContent = whoInput.value.trim() ? "hồ sơ: " + currentUser() : "";
-  render();
-  localStorage.setItem(KEY_PREFIX + "_lastUser", whoInput.value.trim());
-});
-
 document.getElementById("btnReset").addEventListener("click", () => {
-  if(confirm("Bỏ tích toàn bộ cho hồ sơ '" + currentUser() + "'?")){
-    localStorage.removeItem(storeKey());
+  if(confirm("Bỏ tích toàn bộ?")){
+    localStorage.removeItem(STORE_KEY);
     render();
   }
 });
 
 document.getElementById("btnExport").addEventListener("click", () => {
-  const blob = new Blob([JSON.stringify({user:currentUser(), state:loadState(), exportedAt:new Date().toISOString()}, null, 2)], {type:"application/json"});
+  const blob = new Blob([JSON.stringify({state:loadState(), exportedAt:new Date().toISOString()}, null, 2)], {type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "ai-privacy-progress-" + currentUser() + ".json";
+  a.download = "ai-privacy-progress.json";
   a.click();
 });
 
-// restore last user
-const last = localStorage.getItem(KEY_PREFIX + "_lastUser");
-if(last){ whoInput.value = last; whoLabel.textContent = "hồ sơ: " + currentUser(); }
 render();
 </script>
 </body>
